@@ -44,8 +44,7 @@ let isAuthenticated = class isAuthenticated {
 };
 isAuthenticated = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [jwt_1.JwtService,
-        user_service_1.UserService])
+    __metadata("design:paramtypes", [jwt_1.JwtService, user_service_1.UserService])
 ], isAuthenticated);
 exports.isAuthenticated = isAuthenticated;
 //# sourceMappingURL=app.middleware.js.map

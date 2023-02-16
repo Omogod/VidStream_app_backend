@@ -7,30 +7,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
-const app_middleware_1 = require("./app.middleware");
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const mongoose_1 = require("@nestjs/mongoose");
-const serve_static_1 = require("@nestjs/serve-static");
-const jwt_1 = require("@nestjs/jwt");
-const constants_1 = require("./utils/constants");
-const posix_1 = require("path/posix");
 const platform_express_1 = require("@nestjs/platform-express");
 const multer_1 = require("multer");
 const uuid_1 = require("uuid");
+const serve_static_1 = require("@nestjs/serve-static");
+const jwt_1 = require("@nestjs/jwt");
+const constants_1 = require("./utils/constants");
+const path_1 = require("path");
 const video_controller_1 = require("./controller/video.controller");
 const video_service_1 = require("./service/video.service");
 const user_service_1 = require("./service/user.service");
 const user_controller_1 = require("./controller/user.controller");
 const video_schema_1 = require("./model/video.schema");
 const user_schema_1 = require("./model/user.schema");
-const common_2 = require("@nestjs/common");
+const app_middleware_1 = require("./app.middleware");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
             .apply(app_middleware_1.isAuthenticated)
-            .exclude({ path: 'api/v1/video/:id', method: common_2.RequestMethod.GET })
+            .exclude({ path: 'api/v1/video/:id', method: common_1.RequestMethod.GET })
             .forRoutes(video_controller_1.VideoController);
     }
 };
@@ -47,14 +46,14 @@ AppModule = __decorate([
                         const ext = file.mimetype.split('/')[1];
                         cb(null, `${(0, uuid_1.v4)()}-${Date.now()}.${ext}`);
                     },
-                }),
+                })
             }),
             jwt_1.JwtModule.register({
                 secret: constants_1.secret,
                 signOptions: { expiresIn: '2h' },
             }),
             serve_static_1.ServeStaticModule.forRoot({
-                rootPath: (0, posix_1.join)(__dirname, '..', 'public'),
+                rootPath: (0, path_1.join)(__dirname, '..', 'public'),
             }),
         ],
         controllers: [app_controller_1.AppController, video_controller_1.VideoController, user_controller_1.UserController],

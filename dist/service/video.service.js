@@ -29,12 +29,9 @@ let VideoService = class VideoService {
     }
     async readVideo(id) {
         if (id.id) {
-            return this.videoModel
-                .findOne({ _id: id.id })
-                .populate('createdBy')
-                .exec();
+            return this.videoModel.findOne({ _id: id.id }).populate("createdBy").exec();
         }
-        return this.videoModel.find().populate('createdBy').exec();
+        return this.videoModel.find().populate("createdBy").exec();
     }
     async streamVideo(id, response, request) {
         try {

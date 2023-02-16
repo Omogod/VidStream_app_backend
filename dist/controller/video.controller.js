@@ -22,15 +22,10 @@ let VideoController = class VideoController {
         this.videoService = videoService;
     }
     async createBook(response, request, video, files) {
-        const requestBody = {
-            createdBy: request.user,
-            title: video.title,
-            video: files.video[0].filename,
-            coverImage: files.cover[0].filename,
-        };
+        const requestBody = { createdBy: request.user, title: video.title, video: files.video[0].filename, coverImage: files.cover[0].filename };
         const newVideo = await this.videoService.createVideo(requestBody);
         return response.status(common_1.HttpStatus.CREATED).json({
-            newVideo,
+            newVideo
         });
     }
     async read(id) {
@@ -46,7 +41,7 @@ let VideoController = class VideoController {
     async delete(response, id) {
         await this.videoService.delete(id);
         return response.status(common_1.HttpStatus.OK).json({
-            user: null,
+            user: null
         });
     }
 };

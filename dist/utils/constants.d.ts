@@ -1,1 +1,1 @@
-export declare const secret = "s038-pwpppwpeok-dffMjfjriru44030423-edmmfvnvdmjrp4l4k";
+export declare const secret = "sew9939pwpppwpeokdffjfjriru44030423-edmmfvnvdmjrp4l4k";

@@ -18,7 +18,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "fullname", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, unqiue: true, lowercase: true }),
+    (0, mongoose_1.Prop)({ required: true, unique: true, lowercase: true }),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
@@ -26,7 +26,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ default: Date.now() }),
+    (0, mongoose_1.Prop)({ required: true, default: Date.now() }),
     __metadata("design:type", Date)
 ], User.prototype, "createdDate", void 0);
 User = __decorate([

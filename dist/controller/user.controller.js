@@ -18,18 +18,19 @@ const user_schema_1 = require("../model/user.schema");
 const user_service_1 = require("../service/user.service");
 const jwt_1 = require("@nestjs/jwt");
 let UserController = class UserController {
-    constructor(userService, jwtService) {
-        this.userService = userService;
+    constructor(userServerice, jwtService) {
+        this.userServerice = userServerice;
         this.jwtService = jwtService;
     }
     async Signup(response, user) {
-        const newUser = await this.userService.signup(user);
+        console.log(user);
+        const newUSer = await this.userServerice.signup(user);
         return response.status(common_1.HttpStatus.CREATED).json({
-            newUser,
+            newUSer
         });
     }
     async SignIn(response, user) {
-        const token = await this.userService.signin(user, this.jwtService);
+        const token = await this.userServerice.signin(user, this.jwtService);
         return response.status(common_1.HttpStatus.OK).json(token);
     }
 };

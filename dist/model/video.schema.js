@@ -32,7 +32,7 @@ __decorate([
     __metadata("design:type", Date)
 ], Video.prototype, "uploadDate", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose.Schema.Types.ObjectId, ref: 'User' }),
+    (0, mongoose_1.Prop)({ type: mongoose.Schema.Types.ObjectId, ref: "User" }),
     __metadata("design:type", user_schema_1.User)
 ], Video.prototype, "createdBy", void 0);
 Video = __decorate([

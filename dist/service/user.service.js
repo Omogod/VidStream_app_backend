@@ -28,15 +28,13 @@ let UserService = class UserService {
         const reqBody = {
             fullname: user.fullname,
             email: user.email,
-            password: hash,
+            password: hash
         };
         const newUser = new this.userModel(reqBody);
         return newUser.save();
     }
     async signin(user, jwt) {
-        const foundUser = await this.userModel
-            .findOne({ email: user.email })
-            .exec();
+        const foundUser = await this.userModel.findOne({ email: user.email }).exec();
         if (foundUser) {
             const { password } = foundUser;
             if (bcrypt.compare(user.password, password)) {

@@ -1,10 +1,10 @@
-import { User } from '../model/user.schema';
-import { UserService } from '../service/user.service';
+import { User } from "../model/user.schema";
+import { UserService } from "../service/user.service";
 import { JwtService } from '@nestjs/jwt';
 export declare class UserController {
-    private readonly userService;
+    private readonly userServerice;
     private jwtService;
-    constructor(userService: UserService, jwtService: JwtService);
+    constructor(userServerice: UserService, jwtService: JwtService);
     Signup(response: any, user: User): Promise<any>;
     SignIn(response: any, user: User): Promise<any>;
 }

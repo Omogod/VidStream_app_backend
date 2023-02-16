@@ -1,6 +1,6 @@
-import * as mongoose from 'mongoose';
-import { User } from './user.schema';
-export type VideoDocument = Video & Document;
+import * as mongoose from "mongoose";
+import { User } from "./user.schema";
+export declare type VideoDocument = Video & Document;
 export declare class Video {
     title: string;
     video: string;
@@ -8,4 +8,4 @@ export declare class Video {
     uploadDate: Date;
     createdBy: User;
 }
-export declare const VideoSchema: mongoose.Schema<Video, mongoose.Model<Video, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, Video>;
+export declare const VideoSchema: mongoose.Schema<mongoose.Document<Video, any, any>, mongoose.Model<mongoose.Document<Video, any, any>, any, any, any>, any, any>;
